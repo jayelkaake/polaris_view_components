@@ -2,6 +2,9 @@ class ThumbnailComponentPreview < ViewComponent::Preview
   def default
   end
 
+  def not_lazy
+  end
+
   def extra_small
   end
 

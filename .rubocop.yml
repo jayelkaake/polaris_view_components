@@ -1,0 +1,4 @@
+Style/SingleLineMethods:
+  Enabled: false
+Style/Documentation:
+  Enabled: false

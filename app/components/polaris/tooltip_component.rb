@@ -7,6 +7,7 @@ module Polaris
       text: nil,
       position: DEFAULT_POSITION,
       active: true,
+      hover_delay: 0,
       **system_arguments
     )
       @text = text
@@ -17,6 +18,7 @@ module Polaris
       system_arguments[:data] ||= {}
       prepend_option(system_arguments[:data], :polaris_tooltip_active_value, @active)
       prepend_option(system_arguments[:data], :polaris_tooltip_position_value, @position)
+      prepend_option(system_arguments[:data], :polaris_hover_delay_value, hover_delay)
       prepend_option(
         system_arguments[:data],
         :action,

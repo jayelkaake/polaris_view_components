@@ -1,103 +1,96 @@
 module Polaris
   # Module to allow shorthand calls for Polaris components
   module ViewHelper
-    # standard:disable Layout/HashAlignment
-    POLARIS_HELPERS = {
-      action_list:              "Polaris::ActionListComponent",
-      autocomplete:             "Polaris::AutocompleteComponent",
-      autocomplete_section:     "Polaris::Autocomplete::SectionComponent",
-      autocomplete_option:      "Polaris::Autocomplete::OptionComponent",
-      avatar:                   "Polaris::AvatarComponent",
-      badge:                    "Polaris::BadgeComponent",
-      banner:                   "Polaris::BannerComponent",
-      bleed:                    "Polaris::BleedComponent",
-      box:                      "Polaris::BoxComponent",
-      button:                   "Polaris::ButtonComponent",
-      button_group:             "Polaris::ButtonGroupComponent",
-      callout_card:             "Polaris::CalloutCardComponent",
-      caption:                  "Polaris::CaptionComponent",
-      card:                     "Polaris::CardComponent",
-      card_section:             "Polaris::Card::SectionComponent",
-      checkbox:                 "Polaris::CheckboxComponent",
-      check_box:                "Polaris::CheckboxComponent",
-      choice_list:              "Polaris::ChoiceListComponent",
-      collapsible:              "Polaris::CollapsibleComponent",
-      data_table:               "Polaris::DataTableComponent",
-      description_list:         "Polaris::DescriptionListComponent",
-      display_text:             "Polaris::DisplayTextComponent",
-      divider:                  "Polaris::DividerComponent",
-      dropzone:                 "Polaris::DropzoneComponent",
-      empty_search_results:     "Polaris::EmptySearchResultsComponent",
-      empty_state:              "Polaris::EmptyStateComponent",
-      exception_list:           "Polaris::ExceptionListComponent",
-      footer_help:              "Polaris::FooterHelpComponent",
-      form_layout:              "Polaris::FormLayoutComponent",
-      frame:                    "Polaris::FrameComponent",
-      filters:                  "Polaris::FiltersComponent",
-      heading:                  "Polaris::HeadingComponent",
-      horizontal_grid:          "Polaris::HorizontalGridComponent",
-      horizontal_stack:         "Polaris::HorizontalStackComponent",
-      icon:                     "Polaris::IconComponent",
-      index_table:              "Polaris::IndexTableComponent",
-      inline_code:              "Polaris::InlineCodeComponent",
-      inline:                   "Polaris::InlineComponent",
-      inline_error:             "Polaris::InlineErrorComponent",
-      keyboard_key:             "Polaris::KeyboardKeyComponent",
-      layout:                   "Polaris::LayoutComponent",
-      link:                     "Polaris::LinkComponent",
-      list:                     "Polaris::ListComponent",
-      modal:                    "Polaris::ModalComponent",
-      modal_section:            "Polaris::Modal::SectionComponent",
-      navigation:               "Polaris::NavigationComponent",
-      navigation_list:          "Polaris::NavigationListComponent",
-      option_list:              "Polaris::OptionListComponent",
-      page:                     "Polaris::PageComponent",
-      page_actions:             "Polaris::PageActionsComponent",
-      pagination:               "Polaris::PaginationComponent",
-      placeholder:              "Polaris::PlaceholderComponent",
-      progress_bar:             "Polaris::ProgressBarComponent",
-      popover:                  "Polaris::PopoverComponent",
-      radio_button:             "Polaris::RadioButtonComponent",
-      resource_list:            "Polaris::ResourceListComponent",
-      resource_item:            "Polaris::ResourceItemComponent",
-      select:                   "Polaris::SelectComponent",
-      setting_toggle:           "Polaris::SettingToggleComponent",
-      shopify_navigation:       "Polaris::ShopifyNavigationComponent",
-      stack:                    "Polaris::StackComponent",
-      stack_item:               "Polaris::Stack::ItemComponent",
-      subheading:               "Polaris::SubheadingComponent",
-      scrollable:               "Polaris::ScrollableComponent",
-      spinner:                  "Polaris::SpinnerComponent",
-      skeleton_body_text:       "Polaris::SkeletonBodyTextComponent",
-      skeleton_display_text:    "Polaris::SkeletonDisplayTextComponent",
-      skeleton_page:            "Polaris::SkeletonPageComponent",
-      skeleton_thumbnail:       "Polaris::SkeletonThumbnailComponent",
-      spacer:                   "Polaris::SpacerComponent",
-      tabs:                     "Polaris::TabsComponent",
-      tag:                      "Polaris::TagComponent",
-      text:                     "Polaris::TextComponent",
-      text_container:           "Polaris::TextContainerComponent",
-      text_field:               "Polaris::TextFieldComponent",
-      text_style:               "Polaris::TextStyleComponent",
-      thumbnail:                "Polaris::ThumbnailComponent",
-      toast:                    "Polaris::ToastComponent",
-      tooltip:                  "Polaris::TooltipComponent",
-      vertical_stack:           "Polaris::VerticalStackComponent",
-      visually_hidden:          "Polaris::VisuallyHiddenComponent"
-    }.freeze
-    # standard:enable Layout/HashAlignment
-    POLARIS_HELPERS.each do |name, component|
-      define_method :"polaris_#{name}" do |*args, **kwargs, &block|
-        render component.constantize.new(*args, **kwargs), &block
-      end
-    end
+    # rubocop:disable Style/ SingleLineMethods
+    def polaris_action_list(*args, **kwargs, &block); render(Polaris::ActionListComponent.new(*args, **kwargs), &block); end
+    def polaris_autocomplete(*args, **kwargs, &block); render(Polaris::AutocompleteComponent.new(*args, **kwargs), &block); end
+    def polaris_autocomplete_section(*args, **kwargs, &block); render(Polaris::Autocomplete::SectionComponent.new(*args, **kwargs), &block); end
+    def polaris_autocomplete_option(*args, **kwargs, &block); render(Polaris::Autocomplete::OptionComponent.new(*args, **kwargs), &block); end
+    def polaris_avatar(*args, **kwargs, &block); render(Polaris::AvatarComponent.new(*args, **kwargs), &block); end
+    def polaris_badge(*args, **kwargs, &block); render(Polaris::BadgeComponent.new(*args, **kwargs), &block); end
+    def polaris_banner(*args, **kwargs, &block); render(Polaris::BannerComponent.new(*args, **kwargs), &block); end
+    def polaris_bleed(*args, **kwargs, &block); render(Polaris::BleedComponent.new(*args, **kwargs), &block); end
+    def polaris_box(*args, **kwargs, &block); render(Polaris::BoxComponent.new(*args, **kwargs), &block); end
+    def polaris_button(*args, **kwargs, &block); render(Polaris::ButtonComponent.new(*args, **kwargs), &block); end
+    def polaris_button_group(*args, **kwargs, &block); render(Polaris::ButtonGroupComponent.new(*args, **kwargs), &block); end
+    def polaris_callout_card(*args, **kwargs, &block); render(Polaris::CalloutCardComponent.new(*args, **kwargs), &block); end
+    def polaris_caption(*args, **kwargs, &block); render(Polaris::CaptionComponent.new(*args, **kwargs), &block); end
+    def polaris_card(*args, **kwargs, &block); render(Polaris::CardComponent.new(*args, **kwargs), &block); end
+    def polaris_card_section(*args, **kwargs, &block); render(Polaris::Card::SectionComponent.new(*args, **kwargs), &block); end
+    def polaris_checkbox(*args, **kwargs, &block); render(Polaris::CheckboxComponent.new(*args, **kwargs), &block); end
+    def polaris_check_box(*args, **kwargs, &block); render(Polaris::CheckboxComponent.new(*args, **kwargs), &block); end
+    def polaris_choice_list(*args, **kwargs, &block); render(Polaris::ChoiceListComponent.new(*args, **kwargs), &block); end
+    def polaris_collapsible(*args, **kwargs, &block); render(Polaris::CollapsibleComponent.new(*args, **kwargs), &block); end
+    def polaris_data_table(*args, **kwargs, &block); render(Polaris::DataTableComponent.new(*args, **kwargs), &block); end
+    def polaris_description_list(*args, **kwargs, &block); render(Polaris::DescriptionListComponent.new(*args, **kwargs), &block); end
+    def polaris_display_text(*args, **kwargs, &block); render(Polaris::DisplayTextComponent.new(*args, **kwargs), &block); end
+    def polaris_divider(*args, **kwargs, &block); render(Polaris::DividerComponent.new(*args, **kwargs), &block); end
+    def polaris_dropzone(*args, **kwargs, &block); render(Polaris::DropzoneComponent.new(*args, **kwargs), &block); end
+    def polaris_empty_search_results(*args, **kwargs, &block); render(Polaris::EmptySearchResultsComponent.new(*args, **kwargs), &block); end
+    def polaris_empty_state(*args, **kwargs, &block); render(Polaris::EmptyStateComponent.new(*args, **kwargs), &block); end
+    def polaris_exception_list(*args, **kwargs, &block); render(Polaris::ExceptionListComponent.new(*args, **kwargs), &block); end
+    def polaris_footer_help(*args, **kwargs, &block); render(Polaris::FooterHelpComponent.new(*args, **kwargs), &block); end
+    def polaris_form_layout(*args, **kwargs, &block); render(Polaris::FormLayoutComponent.new(*args, **kwargs), &block); end
+    def polaris_frame(*args, **kwargs, &block); render(Polaris::FrameComponent.new(*args, **kwargs), &block); end
+    def polaris_filters(*args, **kwargs, &block); render(Polaris::FiltersComponent.new(*args, **kwargs), &block); end
+    def polaris_heading(*args, **kwargs, &block); render(Polaris::HeadingComponent.new(*args, **kwargs), &block); end
+    def polaris_horizontal_grid(*args, **kwargs, &block); render(Polaris::HorizontalGridComponent.new(*args, **kwargs), &block); end
+    def polaris_horizontal_stack(*args, **kwargs, &block); render(Polaris::HorizontalStackComponent.new(*args, **kwargs), &block); end
+    def polaris_icon(*args, **kwargs, &block); render(Polaris::IconComponent.new(*args, **kwargs), &block); end
+    def polaris_index_table(*args, **kwargs, &block); render(Polaris::IndexTableComponent.new(*args, **kwargs), &block); end
+    def polaris_inline_code(*args, **kwargs, &block); render(Polaris::InlineCodeComponent.new(*args, **kwargs), &block); end
+    def polaris_inline(*args, **kwargs, &block); render(Polaris::InlineComponent.new(*args, **kwargs), &block); end
+    def polaris_inline_error(*args, **kwargs, &block); render(Polaris::InlineErrorComponent.new(*args, **kwargs), &block); end
+    def polaris_keyboard_key(*args, **kwargs, &block); render(Polaris::KeyboardKeyComponent.new(*args, **kwargs), &block); end
+    def polaris_layout(*args, **kwargs, &block); render(Polaris::LayoutComponent.new(*args, **kwargs), &block); end
+    def polaris_link(*args, **kwargs, &block); render(Polaris::LinkComponent.new(*args, **kwargs), &block); end
+    def polaris_list(*args, **kwargs, &block); render(Polaris::ListComponent.new(*args, **kwargs), &block); end
+    def polaris_modal(*args, **kwargs, &block); render(Polaris::ModalComponent.new(*args, **kwargs), &block); end
+    def polaris_modal_section(*args, **kwargs, &block); render(Polaris::Modal::SectionComponent.new(*args, **kwargs), &block); end
+    def polaris_navigation(*args, **kwargs, &block); render(Polaris::NavigationComponent.new(*args, **kwargs), &block); end
+    def polaris_navigation_list(*args, **kwargs, &block); render(Polaris::NavigationListComponent.new(*args, **kwargs), &block); end
+    def polaris_option_list(*args, **kwargs, &block); render(Polaris::OptionListComponent.new(*args, **kwargs), &block); end
+    def polaris_page(*args, **kwargs, &block); render(Polaris::PageComponent.new(*args, **kwargs), &block); end
+    def polaris_page_actions(*args, **kwargs, &block); render(Polaris::PageActionsComponent.new(*args, **kwargs), &block); end
+    def polaris_pagination(*args, **kwargs, &block); render(Polaris::PaginationComponent.new(*args, **kwargs), &block); end
+    def polaris_placeholder(*args, **kwargs, &block); render(Polaris::PlaceholderComponent.new(*args, **kwargs), &block); end
+    def polaris_progress_bar(*args, **kwargs, &block); render(Polaris::ProgressBarComponent.new(*args, **kwargs), &block); end
+    def polaris_popover(*args, **kwargs, &block); render(Polaris::PopoverComponent.new(*args, **kwargs), &block); end
+    def polaris_radio_button(*args, **kwargs, &block); render(Polaris::RadioButtonComponent.new(*args, **kwargs), &block); end
+    def polaris_resource_list(*args, **kwargs, &block); render(Polaris::ResourceListComponent.new(*args, **kwargs), &block); end
+    def polaris_resource_item(*args, **kwargs, &block); render(Polaris::ResourceItemComponent.new(*args, **kwargs), &block); end
+    def polaris_select(*args, **kwargs, &block); render(Polaris::SelectComponent.new(*args, **kwargs), &block); end
+    def polaris_setting_toggle(*args, **kwargs, &block); render(Polaris::SettingToggleComponent.new(*args, **kwargs), &block); end
+    def polaris_shopify_navigation(*args, **kwargs, &block); render(Polaris::ShopifyNavigationComponent.new(*args, **kwargs), &block); end
+    def polaris_stack(*args, **kwargs, &block); render(Polaris::StackComponent.new(*args, **kwargs), &block); end
+    def polaris_stack_item(*args, **kwargs, &block); render(Polaris::Stack::ItemComponent.new(*args, **kwargs), &block); end
+    def polaris_subheading(*args, **kwargs, &block); render(Polaris::SubheadingComponent.new(*args, **kwargs), &block); end
+    def polaris_scrollable(*args, **kwargs, &block); render(Polaris::ScrollableComponent.new(*args, **kwargs), &block); end
+    def polaris_spinner(*args, **kwargs, &block); render(Polaris::SpinnerComponent.new(*args, **kwargs), &block); end
+    def polaris_skeleton_body_text(*args, **kwargs, &block); render(Polaris::SkeletonBodyTextComponent.new(*args, **kwargs), &block); end
+    def polaris_skeleton_display_text(*args, **kwargs, &block); render(Polaris::SkeletonDisplayTextComponent.new(*args, **kwargs), &block); end
+    def polaris_skeleton_page(*args, **kwargs, &block); render(Polaris::SkeletonPageComponent.new(*args, **kwargs), &block); end
+    def polaris_skeleton_thumbnail(*args, **kwargs, &block); render(Polaris::SkeletonThumbnailComponent.new(*args, **kwargs), &block); end
+    def polaris_spacer(*args, **kwargs, &block); render(Polaris::SpacerComponent.new(*args, **kwargs), &block); end
+    def polaris_tabs(*args, **kwargs, &block); render(Polaris::TabsComponent.new(*args, **kwargs), &block); end
+    def polaris_tag(*args, **kwargs, &block); render(Polaris::TagComponent.new(*args, **kwargs), &block); end
+    def polaris_text(*args, **kwargs, &block); render(Polaris::TextComponent.new(*args, **kwargs), &block); end
+    def polaris_text_container(*args, **kwargs, &block); render(Polaris::TextContainerComponent.new(*args, **kwargs), &block); end
+    def polaris_text_field(*args, **kwargs, &block); render(Polaris::TextFieldComponent.new(*args, **kwargs), &block); end
+    def polaris_text_style(*args, **kwargs, &block); render(Polaris::TextStyleComponent.new(*args, **kwargs), &block); end
+    def polaris_thumbnail(*args, **kwargs, &block); render(Polaris::ThumbnailComponent.new(*args, **kwargs), &block); end
+    def polaris_toast(*args, **kwargs, &block); render(Polaris::ToastComponent.new(*args, **kwargs), &block); end
+    def polaris_tooltip(*args, **kwargs, &block); render(Polaris::TooltipComponent.new(*args, **kwargs), &block); end
+    def polaris_vertical_stack(*args, **kwargs, &block); render(Polaris::VerticalStackComponent.new(*args, **kwargs), &block); end
+    def polaris_visually_hidden(*args, **kwargs, &block); render(Polaris::VisuallyHiddenComponent.new(*args, **kwargs), &block); end
 
-    POLARIS_TEXT_STYLES = %i[subdued strong positive negative code].freeze
-    POLARIS_TEXT_STYLES.each do |name|
-      define_method :"polaris_text_#{name}" do |**kwargs, &block|
-        polaris_text_style(variation: name, **kwargs, &block)
-      end
-    end
+    def polaris_text_subdued(**kwargs, &block); polaris_text_style(variation: :subdued, **kwargs, &block); end
+    def polaris_text_strong(**kwargs, &block); polaris_text_style(variation: :strong, **kwargs, &block); end
+    def polaris_text_positive(**kwargs, &block); polaris_text_style(variation: :positive, **kwargs, &block); end
+    def polaris_text_negative(**kwargs, &block); polaris_text_style(variation: :negative, **kwargs, &block); end
+    def polaris_text_code(**kwargs, &block); polaris_text_style(variation: :code, **kwargs, &block); end
+
+    # rubocop:enable Style/ SingleLineMethods
 
     def polaris_icon_source(name)
       paths = [

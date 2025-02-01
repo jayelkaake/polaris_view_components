@@ -4,7 +4,7 @@ module Polaris
   class ThumbnailComponent < Polaris::Component
     include ActiveModel::Validations
 
-    attr_reader :size, :transparent
+    attr_reader :size, :transparent, :lazy
 
     SIZE_DEFAULT = :medium
     SIZE_MAPPINGS = {
@@ -24,12 +24,14 @@ module Polaris
       size: SIZE_DEFAULT,
       source: nil,
       transparent: false,
+      lazy: true,
       **system_arguments
     )
       @alt = alt
       @size = size
       @source = source
       @transparent = transparent
+      @lazy = lazy
 
       @size = :extra_small if [:xsmall, :x_small, :xs].include?(@size)
 

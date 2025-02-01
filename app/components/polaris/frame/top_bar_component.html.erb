@@ -5,19 +5,16 @@
         <%= polaris_icon(name: "MenuIcon") %>
       </button>
 
-      <% if @logo.present? %>
-        <div class="Polaris-TopBar__LogoContainer Polaris-TopBar__LogoDisplayControl">
-          <%= link_to(@logo.url,
-            class: "Polaris-TopBar__LogoLink",
-            style: "width: #{@logo.width}"
-          ) do %>
-            <%= image_tag @logo.src,
-              class: "Polaris-TopBar__Logo",
-              style: "width: #{@logo.width}",
-              alt: @logo.alt %>
+      <div class="Polaris-TopBar__LogoContainer Polaris-TopBar__LogoDisplayControl">
+        <% if @logo_args.present? %>
+          <%= link_to(@logo_args[:url],
+                      class: "Polaris-TopBar__LogoLink",
+                      style: "width: #{@logo_args[:width]}"
+              ) do %>
+            <%= render(Polaris::LogoComponent.new(**@logo_args)) %>
           <% end %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
 
     <div class="Polaris-TopBar__Search">

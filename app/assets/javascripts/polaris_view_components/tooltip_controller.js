@@ -3,10 +3,18 @@ import { computePosition, autoUpdate, offset, flip, shift, arrow } from "@floati
 
 export default class extends Controller {
   static targets = ["template"]
-  static values = { active: Boolean, position: String }
+  static values = { active: Boolean, position: String, hoverDelay: Number }
 
-  show(event) {
+  show(event, delay) {
     if (!this.activeValue) return;
+
+    delay = typeof delay === 'undefined' ? this.hoverDelayValue : delay;
+    if (delay) {
+      this._delayTimeout = this._delayTimeout || setTimeout(() => {
+        clearTimeout(this._delayTimeout);
+        this.show(event, 0);
+      }, delay)
+    }
 
     const element = event.currentTarget;
 
@@ -74,6 +82,7 @@ export default class extends Controller {
 
   hide() {
     if (this.tooltip) {
+      if (this._delayTimeout) clearTimeout(this._delayTimeout);
       this.tooltip.remove();
     }
   }

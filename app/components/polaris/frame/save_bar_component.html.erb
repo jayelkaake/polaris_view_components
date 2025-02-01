@@ -1,7 +1,7 @@
 <%= render(Polaris::BaseComponent.new(**system_arguments)) do %>
-  <% if @logo.present? && !@flush %>
+  <% unless @flush %>
     <div class="Polaris-Frame-ContextualSaveBar__LogoContainer" style="width: <%= @logo.width %>">
-      <%= image_tag @logo.src, style: "width: #{@logo.width}", alt: @logo.alt %>
+      <%= logo %>
     </div>
   <% end %>
 

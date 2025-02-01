@@ -1,7 +1,7 @@
 <li class="Polaris-LegacyTabs__TabContainer" role="presentation">
   <%= render(Polaris::BaseComponent.new(**system_arguments)) do %>
     <span class="Polaris-LegacyTabs__Title">
-      <%= @title %>
+      <%= @title || content %>
       <% if badge.present? %>
         <%= badge %>
       <% end %>

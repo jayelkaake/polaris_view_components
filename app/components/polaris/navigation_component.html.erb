@@ -1,17 +1,14 @@
 <nav class="Polaris-Navigation">
-  <% if @logo.present? %>
-    <div class="Polaris-Navigation__LogoContainer">
-      <%= link_to(@logo.url,
+  <div class="Polaris-Navigation__LogoContainer">
+    <% if @logo_args.present? %>
+      <%= link_to(@logo_args[:url],
         class: "Polaris-Navigation__LogoLink",
-        style: "width: #{@logo.width}"
+        style: "width: #{@logo_args[:width]}"
       ) do %>
-        <%= image_tag @logo.src,
-          class: "Polaris-Navigation__Logo",
-          style: "width: #{@logo.width}",
-          alt: @logo.alt %>
+        <%= render(Polaris::LogoComponent.new(**@logo_args)) %>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
   <%= polaris_scrollable(classes: "Polaris-Navigation__PrimaryNavigation") do %>
     <% if sections.present? %>

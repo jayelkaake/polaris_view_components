@@ -1,18 +1,18 @@
 module Polaris
   class FrameComponent < Polaris::Component
     renders_one :top_bar, ->(**system_arguments) do
-      Polaris::Frame::TopBarComponent.new(logo: @logo, **system_arguments)
+      Polaris::Frame::TopBarComponent.new(**system_arguments)
     end
     renders_one :navigation, ->(**system_arguments) do
-      Polaris::NavigationComponent.new(logo: @logo, **system_arguments)
+      Polaris::NavigationComponent.new(**system_arguments)
     end
     renders_one :save_bar, ->(**system_arguments) do
-      Polaris::Frame::SaveBarComponent.new(logo: @logo, **system_arguments)
+      Polaris::Frame::SaveBarComponent.new(**system_arguments)
     end
     renders_one :toasts
 
-    def initialize(logo: nil, **system_arguments)
-      @logo = logo && Polaris::Logo.new(**logo)
+    def initialize(**system_arguments)
+      super
       @system_arguments = system_arguments
     end
 
