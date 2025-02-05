@@ -11,16 +11,8 @@
         <div class="Polaris-Page-Header__Row">
           <% if @back_url.present? %>
             <div class="Polaris-Page-Header__BreadcrumbWrapper">
-              <%= polaris_box(max_width: "100%", padding_inline_end: "2", print_hidden: true) do %>
-                <nav role="navigation">
-                  <a class="Polaris-Breadcrumbs__Breadcrumb" href="<%= @back_url %>" data-polaris-unstyled="true">
-                    <span class="Polaris-Breadcrumbs__ContentWrapper">
-                      <span class="Polaris-Breadcrumbs__Icon">
-                        <%= polaris_icon(name: "ArrowLeftIcon") %>
-                      </span>
-                    </span>
-                  </a>
-                </nav>
+              <%= polaris_box(max_width: "100%", padding_inline_end: "1", print_hidden: true) do %>
+                <%= polaris_button(url: @back_url, icon_name: 'ArrowLeftIcon') %>
               <% end %>
             </div>
           <% end %>
