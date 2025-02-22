@@ -54,7 +54,7 @@ module Polaris
       if options[:error_hidden] && options[:error]
         options[:error] = !!options[:error]
       end
-      render Polaris::TextFieldComponent.new(form: self, attribute: method, **options), &block
+      render Polaris::TextFieldComponent.new(form: self, attribute: method, input_options: {name: field_name(method)}, **options), &block
     end
 
     def polaris_select(method, **options, &block)
@@ -66,7 +66,7 @@ module Polaris
       if value.present?
         options[:selected] = value
       end
-      render Polaris::SelectComponent.new(form: self, attribute: method, **options, &block)
+      render Polaris::SelectComponent.new(form: self, attribute: method, input_options: {name: field_name(method)}, **options, &block)
     end
 
     def polaris_check_box(method, **options, &block)
@@ -74,7 +74,7 @@ module Polaris
       if options[:error_hidden] && options[:error]
         options[:error] = !!options[:error]
       end
-      render Polaris::CheckboxComponent.new(form: self, attribute: method, **options, &block)
+      render Polaris::CheckboxComponent.new(form: self, attribute: method, input_options: {name: field_name(method)}, **options, &block)
     end
 
     def polaris_radio_button(method, **options, &block)
@@ -82,7 +82,7 @@ module Polaris
       if options[:error_hidden] && options[:error]
         options[:error] = !!options[:error]
       end
-      render Polaris::RadioButtonComponent.new(form: self, attribute: method, **options, &block)
+      render Polaris::RadioButtonComponent.new(form: self, attribute: method, input_options: {name: field_name(method)}, **options, &block)
     end
 
     def polaris_dropzone(method, **options, &block)
@@ -90,7 +90,7 @@ module Polaris
       if options[:error_hidden] && options[:error]
         options[:error] = !!options[:error]
       end
-      render Polaris::DropzoneComponent.new(form: self, attribute: method, **options, &block)
+      render Polaris::DropzoneComponent.new(form: self, attribute: method, input_options: {name: field_name(method)}, **options, &block)
     end
 
     def polaris_collection_check_boxes(method, collection, value_method, text_method, **options, &block)
@@ -104,6 +104,7 @@ module Polaris
         options[:selected] = value.map { |el| el.public_send(value_method) }
       end
       input_options = options.delete(:input_options) || {}
+      input_options[:name] ||= field_name(method)
 
       render Polaris::ChoiceListComponent.new(
         form: self,
@@ -128,7 +129,7 @@ module Polaris
       if options[:error_hidden] && options[:error]
         options[:error] = !!options[:error]
       end
-      render Polaris::AutocompleteComponent.new(form: self, attribute: method, name: method, **options), &block
+      render Polaris::AutocompleteComponent.new(form: self, attribute: method, name: method, input_options: {name: field_name(method)}, **options), &block
     end
   end
 end

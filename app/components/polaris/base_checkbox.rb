@@ -34,6 +34,7 @@ module Polaris
         end
         opts[:class] = opts.delete(:classes)
         opts[:form] = @form if @form.present? && @attribute.blank?
+        opts[:name] = @name
       end
     end
 
