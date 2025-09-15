@@ -68,9 +68,9 @@ module Polaris
         args[:classes] = class_names(
           args[:classes]
         )
-        args[:position] = :relative
-        args[:padding] = "3"
-        args[:z_index] = "var(--pc-resource-item-content-stacking-order)"
+        args[:position] ||= :relative
+        args[:padding] ||= "3"
+        args[:z_index] ||= "var(--pc-resource-item-content-stacking-order)"
       end
     end
 
